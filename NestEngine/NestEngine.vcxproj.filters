@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Factories">
+      <UniqueIdentifier>{027d5009-79db-45a1-80af-de8d41567672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GlobalConstants">
+      <UniqueIdentifier>{585ae671-20df-4bc5-a7e0-e13e9ca28421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HelperFiles">
+      <UniqueIdentifier>{d4ba384d-4b4a-445b-b42b-f3854f876abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parsing">
+      <UniqueIdentifier>{734d1136-8d78-4732-95ca-2f6bf50d377a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{ba51a59c-a090-43ee-aefe-f99463bdd890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{a72ff92d-ad20-4ce9-9aba-f3f4ff1a17f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{5e6d81d7-8170-46fc-b76f-4b6b6469c598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VulkanWrappers">
+      <UniqueIdentifier>{2206f4dc-ceba-49c6-acb6-8e4ab0250918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes">
+      <UniqueIdentifier>{2014796d-20a3-48ea-a5ad-e21a9dfb46af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{3e069379-7de9-498d-9fe0-84c1091c11a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDLWrappers">
+      <UniqueIdentifier>{e53f45a8-61ff-4e8c-8055-59de7431f391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Uniforms">
+      <UniqueIdentifier>{c439f12e-aa13-4685-9f0f-1dabfb654c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructs">
+      <UniqueIdentifier>{aa12a12a-da9e-40da-9b86-2ae0649c09ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Configuration">
+      <UniqueIdentifier>{6d444cc8-2f59-4a3c-9220-418e8db2e3f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{60eba582-dbc7-4065-beee-2e047c525dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{4a6af76a-ddd3-4e34-874b-d03a170a92dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataWrappers">
+      <UniqueIdentifier>{4cbbd6f5-345d-4f7e-8567-e8356b24bfee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{f38aa288-c110-4c0f-a0bf-f10aa0cb12ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zipper">
+      <UniqueIdentifier>{00738a0e-06ed-473d-a42b-3d5269bee7df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{116f7484-965c-4b0a-87b8-a585158e9314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Components">
+      <UniqueIdentifier>{135420dd-c77a-49e2-9e6d-62455268d8c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{1d058718-0e45-41cb-a290-69fba3013e68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\BleachNew">
+      <UniqueIdentifier>{35c42293-382c-42aa-a4d7-68a9c01b059b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\tinyxml2">
+      <UniqueIdentifier>{e1fea5e3-5613-4343-bf05-e84d1f39c1fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\gap-311">
+      <UniqueIdentifier>{1a7271c7-b4cd-4fa4-87a0-751af4ebc712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{0dcdd0a7-3f15-40cb-8552-739e8f36c41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\ImGui">
+      <UniqueIdentifier>{f6b1ad93-9b4a-4a40-8d97-a41226125b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tiling">
+      <UniqueIdentifier>{a0ccbc63-2448-44d5-823f-0b91c3ee3e75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Parsing\XMLFile.cpp">
+      <Filter>Parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Parsing\XMLNode.cpp">
+      <Filter>Parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\Node.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\GameFactory.cpp">
+      <Filter>Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\Pipeline.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\PipelineConfigs.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\Texture.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\GraphicsSystem.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\LightManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ResourceManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="DataWrappers\HashMapWrapper.cpp">
+      <Filter>DataWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\Factory.cpp">
+      <Filter>Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\EventManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\Manager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\InputManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BaseObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWrappers\Color.cpp">
+      <Filter>SDLWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWrappers\ImageWrapper.cpp">
+      <Filter>SDLWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Parsing\StringParser.cpp">
+      <Filter>Parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\FactoryManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiling\TileData.cpp">
+      <Filter>Tiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiling\TileMap.cpp">
+      <Filter>Tiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiling\Tiler.cpp">
+      <Filter>Tiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Zipper\Zipper.cpp">
+      <Filter>Zipper</Filter>
+    </ClCompile>
+    <ClCompile Include="Parsing\XMLDataParser.cpp">
+      <Filter>Parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\LogManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWrappers\Keyboard.cpp">
+      <Filter>SDLWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWrappers\Window.cpp">
+      <Filter>SDLWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBuffer.cpp" />
+    <ClCompile Include="RenderBufferImpl.cpp" />
+    <ClCompile Include="VulkanWrappers\VulkanImpl.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\Vulkan.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\BleachNew\BleachNew.cpp">
+      <Filter>lib\BleachNew</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml2\tinyxml2.cpp">
+      <Filter>lib\tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\Image.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\ImageView.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\Sampler.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanWrappers\DescriptorSet.cpp">
+      <Filter>VulkanWrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Components\CameraComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Components\KinematicComponent3D.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Components\TransformComponent3D.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\CameraManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\CameraObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FrameRate.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\ShapeFactory.cpp">
+      <Filter>Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\SkyboxManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ImGuiManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\WindowManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\SceneManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)imgui-1.91.0\imgui.h">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui-1.91.0\imgui.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui-1.91.0\imgui_draw.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)imgui-1.91.0\backends\imgui_impl_sdl2.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)imgui-1.91.0\backends\imgui_impl_sdl2.h">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)imgui-1.91.0\backends\imgui_impl_vulkan.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)imgui-1.91.0\backends\imgui_impl_vulkan.h">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui-1.91.0\imgui_tables.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui-1.91.0\imgui_widgets.cpp">
+      <Filter>lib\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\FileManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PBRTextureStack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Parsing\XMLFile.h">
+      <Filter>Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Parsing\XMLNode.h">
+      <Filter>Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\Keybind.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Uniforms\MeshDataStructs.h">
+      <Filter>Uniforms</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\Node.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConstants\constants.h">
+      <Filter>GlobalConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\GameFactory.h">
+      <Filter>Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructs\kinematics.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructs\TransformData.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\Pipeline.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\PipelineConfigs.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\Texture.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Utility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\GraphicsSystem.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\LightManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ResourceManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="HelperFiles\MyConcepts.h">
+      <Filter>HelperFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DataWrappers\HashMapWrapper.h">
+      <Filter>DataWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\Factory.h">
+      <Filter>Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\EventManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\Manager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\InputManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\EventIdHashes.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\Event.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\InputEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\BaseObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConstants\UIConstants.h">
+      <Filter>GlobalConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\Color.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\ImageWrapper.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Parsing\StringParser.h">
+      <Filter>Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\FactoryManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructs\Item.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\Tile.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\TileData.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\TileMap.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\TileMapData.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\Tiler.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\TileSetData.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Zipper\Zipper.h">
+      <Filter>Zipper</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\Keycodes.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Parsing\XMLDataParser.h">
+      <Filter>Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\LogManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\Keyboard.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWrappers\Window.h">
+      <Filter>SDLWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="HelperFiles\IdTypes.h">
+      <Filter>HelperFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBuffer.h" />
+    <ClInclude Include="RenderBufferImpl.h" />
+    <ClInclude Include="VulkanWrappers\VulkanImpl.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\Vulkan.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\BleachNew\BleachNewConfig.h">
+      <Filter>lib\BleachNew</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\BleachNew\BleachNew.h">
+      <Filter>lib\BleachNew</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\tinyxml2\tinyxml2.h">
+      <Filter>lib\tinyxml2</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\gap-311\VulkanShaderLibrary.hpp">
+      <Filter>lib\gap-311</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\DescriptorSet.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\Sampler.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\ImageView.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanWrappers\Image.h">
+      <Filter>VulkanWrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Components\CameraComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructs\CameraData.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Components\KinematicComponent3D.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Components\TransformComponent3D.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\CameraManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\CameraObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Components\Component.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling\LayerData.h">
+      <Filter>Tiling</Filter>
+    </ClInclude>
+    <ClInclude Include="MathAlias.h">
+      <Filter>HelperFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FrameRate.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\MathAlias.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Random.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Hash.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\ShapeFactory.h">
+      <Filter>Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\SkyboxManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ImGuiManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\WindowManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\SceneManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\gap-311\VulkanWrapper.hpp">
+      <Filter>lib\gap-311</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration\EngineConfig.h">
+      <Filter>Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui-1.91.0\imconfig.h">
+      <Filter>lib\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui-1.91.0\imgui_internal.h">
+      <Filter>lib\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\FileManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PBRTextureStack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Configuration\LogConfig.txt">
+      <Filter>Configuration</Filter>
+    </Text>
+    <Text Include="EngineChecklist.txt">
+      <Filter>Resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration\Macros.h">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="Shaders\shadow.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shadow.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skybox.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skybox.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textured.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textured.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\grid.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\grid.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\mesh.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\mesh.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Configuration\LogMacro.hint">
+      <Filter>Configuration</Filter>
+    </None>
+  </ItemGroup>
+</Project>

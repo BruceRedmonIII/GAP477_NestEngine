@@ -1,0 +1,25 @@
+enum Keys
+{
+    Key_A,
+    Key_B,
+    //etc...
+}
+
+class Keyboard
+{
+    std::unordered_map<Keycodes, bool> m_keyMap;
+public:
+    Keyboard();
+    ~Keyboard() = default;
+    Keyboard(const Keyboard& copy) = delete;
+    Keyboard& operator=(const Keyboard& copy) = delete;
+    void HandleEvent(const InputEvent& event);
+    bool KeyPressed(Keycodes key);
+    bool KeyBindPressed(KeyBind* bind);
+    void SetKey(Keycodes key, bool status) { m_keyMap[key] = status; }
+};
+
+class KeyContext
+{
+    
+}

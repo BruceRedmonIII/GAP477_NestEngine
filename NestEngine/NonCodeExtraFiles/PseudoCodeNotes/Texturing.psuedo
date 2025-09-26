@@ -1,0 +1,19 @@
+struct Texture
+    set : DescriptorSet
+    image : image
+    imageView : imageView
+    sampler : sampler
+    isValid : bool
+
+
+TexturedMeshNode
+    textures[7] : Textures* // Im not sure the number of max texture types like bump, height, etc
+    
+    SetTextures(aiMaterial* material)
+    {
+        if (material->GetTextureCount(aiTextureType_DIFFUSE))
+        {
+            
+        }
+        
+    }

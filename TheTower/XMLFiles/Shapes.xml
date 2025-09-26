@@ -1,0 +1,36 @@
+<Meshes> <!-- placeholder -->
+	<MeshNode Type="Cube" Scale="1 1 1" Rotation="0 0 0"> <!-- A -->
+		<Vertex Position="0 0 0"/> 
+		<Vertex Position="0 1 0"/>
+		<Vertex Position="1 1 0"/> 
+		<Vertex Position="2 1 0"/>
+		<Vertex Position="0 2 0"/>
+		<Vertex Position="1 3 0"/>
+		<Vertex Position="2 3 0"/> 
+		<Vertex Position="3 2 0"/>
+		<Vertex Position="3 1 0"/>
+		<Vertex Position="3 0 0"/>
+	</MeshNode>
+    <MeshNode Type="Cube" Scale="1 1 1" Rotation="0 0 0"> <!-- A -->
+		<Vertex Position="0 0 0"/> 
+		<Vertex Position="0 1 0"/>
+		<Vertex Position="1 1 0"/> 
+		<Vertex Position="2 1 0"/>
+		<Vertex Position="0 2 0"/>
+		<Vertex Position="1 3 0"/>
+		<Vertex Position="2 3 0"/> 
+		<Vertex Position="3 2 0"/>
+		<Vertex Position="3 1 0"/>
+		<Vertex Position="3 0 0"/>
+	</MeshNode>
+	<MeshNode Type="Cube" Scale="1 1 1" Rotation="0 0 0"> <!-- U --> 
+		<Vertex Position="0 1 0"/>
+		<Vertex Position="0 2 0"/>
+		<Vertex Position="0 3 0"/>
+		<Vertex Position="1 0 0"/>
+		<Vertex Position="2 0 0"/>
+		<Vertex Position="3 1 0"/>
+		<Vertex Position="3 2 0"/>
+		<Vertex Position="3 3 0"/> 	
+	</MeshNode>
+</Meshes>

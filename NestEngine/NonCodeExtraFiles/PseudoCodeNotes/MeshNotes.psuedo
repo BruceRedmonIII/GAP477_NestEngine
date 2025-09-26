@@ -1,0 +1,129 @@
+class MeshNode : BaseNode
+    pipeline: VulkanPipeline
+    vertexBuffer: vector
+    IndicesBuffer: vector
+    MeshNode(Pipeline, pos, rot, vertices, indices);
+
+// Load a scene, traverse every aiNode for mRootnode
+function LoadScene()
+    scene: aiScene
+    root: scene.root
+
+    while (true)
+        if root has meshes
+            CreateMeshNode(aiNode)
+        else
+            CreateRegularNode(aiNode)
+        if root.nextNode is invalid
+            return
+
+function CreateMeshNode(aiNode)
+    meshNodeBase = meshNode
+    node = meshNode
+    for mesh in aiNode
+        meshNode.vertex = mesh.vertex //
+        meshNode.index = mesh.index // stores the indexes of transformations contained by mesh
+        meshNode.material = mesh.material
+    meshNodeBase.emplace(node)
+
+function CreateRegularNode(aiNode)
+    node = regularNode
+    node.transformation = aiNode.transformation
+    // or we can do
+    node.position = aiNode.tranformation.decompose(position)
+    node.scale = aiNode.tranformation.decompose(scale)
+    node.rotation = aiNode.tranformation.decompose(rotation)
+
+
+class ResourceManager
+    materialArray[index]: int, vec4
+
+    function GetMaterial(index)
+        if contains return materialArray[index]
+
+
+
+class aiNode
+    parent: aiNode
+    children: aiNode[]
+    name: aiString
+    meshes: uint[]
+    transformation: mat4
+
+function TraverseNodes(aiScene)
+{
+    Map: distance, prev
+    rootNode = aiScene.rootNode
+    foreach child in rootNode
+        distance[child] = INFINITY
+        prev[child] = UNDEFINED // 0
+        add child to que
+    distance[rootNode] = 0
+
+    current = child
+
+    while !que.empty()
+        // que needs to be sorted here for this to work
+        cheapest = que.pop()
+
+        foreach neighbor of cheapest
+            tenativeScore = distance[neighbor] + Heuristic(neighbor, current)
+            if tenative < distance[current]
+                distance[current] = tenative
+                prev[current] = neighbor
+        return Map
+} 
+
+struct TransformData
+    // idk what to store here yet
+
+class Graphics
+    pipelines: vector<Pipeline> // if we have many pipelines, convert to map
+    renderQueue: Priority_Queue<MeshNode*> // compare logic 
+
+    function AddPipeline(Pipeline pipeline)
+        pipelines.emplace(pipeline)
+
+    function Render() const
+        // render logic
+
+    function QueRender(MeshNode* node)
+        renderQueue.emplace(node)
+
+class BaseNode
+    parent: BaseNode*
+    
+    function SetParent(BaseNode* node) { parent = setParent; }
+    function GetParent() { return parent; }
+
+class InternalRootNode<class Type> : BaseNode
+    children: vector<Type*>
+
+    function AddChild(Type* child) { children.emplace(child); }
+    function RenderChildren()
+    function UpdateChildren(float deltaTime) // not sure if we need this?
+
+class InternalTransformNode: BaseNode
+    transformData: TransformData 
+
+    function GetTransform()
+    function GetRelativeTransform()
+    function Rotate()
+    function AddPosition()
+    function SetPosition()
+
+class SceneNode : InternalRootNode<BaseNode> // should be able to store anything
+    // not sure on logic yet, if any
+    // might also inherit transform for CameraNode 
+
+class MeshNode : InternalRootNode<MeshNode>, InternalTransformNode
+    pipelineId: HashedId
+    materialId: HashedId
+    indexBuffer: vk::Buffer
+    verticeBuffer: vk::Buffer
+    vertices: vector<MeshVertex>
+    indicies: vector<uint32_t>
+
+    MeshNode(const aiMesh* mesh); // instatiate from imported node
+    function QueRender()
+        Graphics::QueRender(MeshNode* node);

@@ -1,0 +1,10 @@
+<!-- 	
+	   4~~~~5
+	  /|   /|
+	 0~~~~1 |
+	 | 7~~|~6    y z
+	 |/   |/     |/
+	 3~~~~2      +~~x 
+-->
+<!-- Color does nothing currently-->
+<Scene Name="Gameplay" LoadFile="Assets/LightAssignment/platform.glb"/>

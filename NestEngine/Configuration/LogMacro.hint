@@ -1,0 +1,21 @@
+#pragma once
+#include "../Utility/Utility.h"
+#include "../Managers/LogManager.h"
+
+#if _LOGS_ENABLED == 1
+
+#define _LOG(type, _msg) \
+    nest::LogManager::Log((_msg), __FUNCTION__, __FILE__, __LINE__, type); \
+    
+#define _LOG_V(type, ...) \
+    nest::VariadicLog(type, __VA_ARGS__); \
+
+
+#else
+#define _LOG(type, _msg) \
+    (void)(type); \
+    (void)(_msg); 
+#define _LOG_V(type, ...) \
+    (void)(type); \
+    (void)(__VA_ARGS__);
+#endif

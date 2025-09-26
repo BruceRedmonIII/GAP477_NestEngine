@@ -1,0 +1,76 @@
+High Priority (We need to get these done immediately or the engine will be incomplete/broken)
+----------------------------------------------------------------------------------------------------------------------
+Wrap all third party libraries into Nest classes/structs in order to completely seperate the engines API
+from the engine cpp code [ ]
+
+Convert camera into camera manager so we can add any cameras we find.
+This step will also involve making a decision on what camera we want to use if we load multiple from a scene [ ]
+
+Create a dynamic system to load Lights into our scene. Helpful information may be found in
+gap-311 zoom calls, but I'm assuming this will have to do with descriptor sets, just like we did with textures [ ]
+
+Format all classes into Engine Based, 
+such as Managers being derived from a manager base class and held in a Engine class [ ]
+
+Add all necessary engine files from nest into NestEngine and 
+update the necessary code to match the new engine [ ]
+
+Update UI system to entirely use vulkan instead of SDL as we dont want to mix renderers.
+We will most likely have to make a UI pipeline along with UI vert and frag shader(s) for this specifically that we render at the 
+very end of our draw calls [ ]
+
+Add the ability for game side pipelines that can also be sorted in whatever way the player chooses, such as 
+drawing before the UI pipeline as to not draw over the UI [ ]
+
+Integrate IMGUI for debug OR create a simple, light, and quick to use UI system for debugging.
+We should not be mixing UIs here, therefore we should stick to our choice in its entirety [ ]
+
+Create default engine skybox with settings for customization and/or overrides [ ]
+
+----------------------------------------------------------------------------------------------------------------------
+
+Mid Priority (Important but the engine is fully functional without)
+----------------------------------------------------------------------------------------------------------------------
+Update log system to categorize logs so we can disable and enable logging for various systems.
+Check Rez DMs for a details conversation on what this should look like [ ]
+
+Add more compatible importing formats for meshes and also refuse meshes that are not supported [ ]
+
+Allow meshes to have both clockwise and counter clockwise rendering order at the same time [ ]
+
+Create a skeletal system [ ], Create an animation system [ ] and allow the import of 3d skeletal animations [ ]
+
+// There are many other rendering things that we need to add as well for a fully functional 3d engine
+// that we need to look into
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+Low Priority (Good things to do but aren't important as of now. Keyword being "now")
+----------------------------------------------------------------------------------------------------------------------
+Wrap 3d functionality seperate from 2d functionality. This should have many considerations such as
+
+do we disable 3d functionality and replace it entirely with 2d functionality? What if our game has a 2d scene
+but is mostly 3d? Do we care about appeasing this scenario or is it just simpler to toggle between them?
+How do components change between the 2 view spaces? etc etc etc [ ]
+
+Thread renderer (good luck) [ ]
+
+Use code generation techniques to create code from data such as an XML file creating an enum 
+(The idea here would be to touch engine code as little as possible. If we use LUA, this will be mandatory) [ ]
+
+----------------------------------------------------------------------------------------------------------------------
+
+Decisions (Things I'm still not sure on but need to figure out asap)
+----------------------------------------------------------------------------------------------------------------------
+Do I want to use XML again or switch to lua for my data programming needs? -
+
+Am I going to rely entirely on 3rd party programs to create animations and meshes? - 
+
+What are we going to define as a "Scene"? Is it the entire game or is it more of a stage in the game? - 
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+Proof of concept, make a 3d game [ ]

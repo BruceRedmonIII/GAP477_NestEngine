@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataWrappers\HashMapWrapper.cpp" />
+    <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Factories\Factory.cpp" />
+    <ClCompile Include="Factories\GameFactory.cpp" />
+    <ClCompile Include="Factories\ShapeFactory.cpp" />
+    <ClCompile Include="lib\BleachNew\BleachNew.cpp" />
+    <ClCompile Include="lib\imgui-1.91.0\imgui.cpp" />
+    <ClCompile Include="lib\imgui-1.91.0\imgui_draw.cpp" />
+    <ClCompile Include="lib\imgui-1.91.0\imgui_tables.cpp" />
+    <ClCompile Include="lib\imgui-1.91.0\imgui_widgets.cpp" />
+    <ClCompile Include="lib\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="Managers\CameraManager.cpp" />
+    <ClCompile Include="Managers\EventManager.cpp" />
+    <ClCompile Include="Managers\FactoryManager.cpp" />
+    <ClCompile Include="Managers\FileManager.cpp" />
+    <ClCompile Include="Managers\GraphicsSystem.cpp" />
+    <ClCompile Include="Managers\ImGuiManager.cpp" />
+    <ClCompile Include="Managers\InputManager.cpp" />
+    <ClCompile Include="Managers\LightManager.cpp" />
+    <ClCompile Include="Managers\LogManager.cpp" />
+    <ClCompile Include="Managers\Manager.cpp" />
+    <ClCompile Include="Managers\ResourceManager.cpp" />
+    <ClCompile Include="Managers\SceneManager.cpp" />
+    <ClCompile Include="Managers\SkyboxManager.cpp" />
+    <ClCompile Include="Managers\WindowManager.cpp" />
+    <ClCompile Include="Math\FrameRate.cpp" />
+    <ClCompile Include="Nodes\Node.cpp" />
+    <ClCompile Include="Objects\BaseObject.cpp" />
+    <ClCompile Include="Objects\CameraObject.cpp" />
+    <ClCompile Include="Objects\Components\CameraComponent.cpp" />
+    <ClCompile Include="Objects\Components\KinematicComponent3D.cpp" />
+    <ClCompile Include="Objects\Components\TransformComponent3D.cpp" />
+    <ClCompile Include="Objects\GameObject.cpp" />
+    <ClCompile Include="Parsing\StringParser.cpp" />
+    <ClCompile Include="Parsing\XMLDataParser.cpp" />
+    <ClCompile Include="Parsing\XMLFile.cpp" />
+    <ClCompile Include="Parsing\XMLNode.cpp" />
+    <ClCompile Include="PBRTextureStack.cpp" />
+    <ClCompile Include="RenderBuffer.cpp" />
+    <ClCompile Include="RenderBufferImpl.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="SDLWrappers\Color.cpp" />
+    <ClCompile Include="SDLWrappers\ImageWrapper.cpp" />
+    <ClCompile Include="SDLWrappers\Keyboard.cpp" />
+    <ClCompile Include="SDLWrappers\Window.cpp" />
+    <ClCompile Include="Tiling\TileData.cpp" />
+    <ClCompile Include="Tiling\TileMap.cpp" />
+    <ClCompile Include="Tiling\Tiler.cpp" />
+    <ClCompile Include="VulkanWrappers\DescriptorSet.cpp" />
+    <ClCompile Include="VulkanWrappers\Image.cpp" />
+    <ClCompile Include="VulkanWrappers\ImageView.cpp" />
+    <ClCompile Include="VulkanWrappers\Pipeline.cpp" />
+    <ClCompile Include="VulkanWrappers\PipelineConfigs.cpp" />
+    <ClCompile Include="VulkanWrappers\Sampler.cpp" />
+    <ClCompile Include="VulkanWrappers\Texture.cpp" />
+    <ClCompile Include="VulkanWrappers\Vulkan.cpp" />
+    <ClCompile Include="VulkanWrappers\VulkanImpl.cpp" />
+    <ClCompile Include="Zipper\Zipper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Configuration\EngineConfig.h" />
+    <ClInclude Include="DataStructs\CameraData.h" />
+    <ClInclude Include="DataStructs\Item.h" />
+    <ClInclude Include="DataStructs\kinematics.h" />
+    <ClInclude Include="DataStructs\TransformData.h" />
+    <ClInclude Include="DataWrappers\HashMapWrapper.h" />
+    <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Events\EventIdHashes.h" />
+    <ClInclude Include="Events\Event.h" />
+    <ClInclude Include="Events\InputEvent.h" />
+    <ClInclude Include="Factories\Factory.h" />
+    <ClInclude Include="Factories\GameFactory.h" />
+    <ClInclude Include="Factories\ShapeFactory.h" />
+    <ClInclude Include="GlobalConstants\constants.h" />
+    <ClInclude Include="GlobalConstants\UIConstants.h" />
+    <ClInclude Include="HelperFiles\IdTypes.h" />
+    <ClInclude Include="HelperFiles\MyConcepts.h" />
+    <ClInclude Include="lib\BleachNew\BleachNew.h" />
+    <ClInclude Include="lib\BleachNew\BleachNewConfig.h" />
+    <ClInclude Include="lib\gap-311\VulkanShaderLibrary.hpp" />
+    <ClInclude Include="lib\gap-311\VulkanWrapper.hpp" />
+    <ClInclude Include="lib\imgui-1.91.0\imconfig.h" />
+    <ClInclude Include="lib\imgui-1.91.0\imgui_internal.h" />
+    <ClInclude Include="lib\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="Managers\CameraManager.h" />
+    <ClInclude Include="Managers\EventManager.h" />
+    <ClInclude Include="Managers\FactoryManager.h" />
+    <ClInclude Include="Managers\FileManager.h" />
+    <ClInclude Include="Managers\GraphicsSystem.h" />
+    <ClInclude Include="Managers\ImGuiManager.h" />
+    <ClInclude Include="Managers\InputManager.h" />
+    <ClInclude Include="Managers\LightManager.h" />
+    <ClInclude Include="Managers\LogManager.h" />
+    <ClInclude Include="Managers\Manager.h" />
+    <ClInclude Include="Managers\ResourceManager.h" />
+    <ClInclude Include="Managers\SceneManager.h" />
+    <ClInclude Include="Managers\SkyboxManager.h" />
+    <ClInclude Include="Managers\WindowManager.h" />
+    <ClInclude Include="MathAlias.h" />
+    <ClInclude Include="Math\FrameRate.h" />
+    <ClInclude Include="Math\Hash.h" />
+    <ClInclude Include="Math\MathAlias.h" />
+    <ClInclude Include="Math\Random.h" />
+    <ClInclude Include="Nodes\Node.h" />
+    <ClInclude Include="Objects\BaseObject.h" />
+    <ClInclude Include="Objects\CameraObject.h" />
+    <ClInclude Include="Objects\Components\CameraComponent.h" />
+    <ClInclude Include="Objects\Components\Component.h" />
+    <ClInclude Include="Objects\Components\KinematicComponent3D.h" />
+    <ClInclude Include="Objects\Components\TransformComponent3D.h" />
+    <ClInclude Include="Objects\GameObject.h" />
+    <ClInclude Include="Parsing\StringParser.h" />
+    <ClInclude Include="Parsing\XMLDataParser.h" />
+    <ClInclude Include="Parsing\XMLFile.h" />
+    <ClInclude Include="Parsing\XMLNode.h" />
+    <ClInclude Include="PBRTextureStack.h" />
+    <ClInclude Include="RenderBuffer.h" />
+    <ClInclude Include="RenderBufferImpl.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="SDLWrappers\Color.h" />
+    <ClInclude Include="SDLWrappers\ImageWrapper.h" />
+    <ClInclude Include="SDLWrappers\Keybind.h" />
+    <ClInclude Include="SDLWrappers\Keycodes.h" />
+    <ClInclude Include="SDLWrappers\Keyboard.h" />
+    <ClInclude Include="SDLWrappers\Window.h" />
+    <ClInclude Include="Tiling\LayerData.h" />
+    <ClInclude Include="Tiling\Tile.h" />
+    <ClInclude Include="Tiling\TileData.h" />
+    <ClInclude Include="Tiling\TileMap.h" />
+    <ClInclude Include="Tiling\TileMapData.h" />
+    <ClInclude Include="Tiling\Tiler.h" />
+    <ClInclude Include="Tiling\TileSetData.h" />
+    <ClInclude Include="Uniforms\MeshDataStructs.h" />
+    <ClInclude Include="Utility\Utility.h" />
+    <ClInclude Include="VulkanWrappers\DescriptorSet.h" />
+    <ClInclude Include="VulkanWrappers\Image.h" />
+    <ClInclude Include="VulkanWrappers\ImageView.h" />
+    <ClInclude Include="VulkanWrappers\Pipeline.h" />
+    <ClInclude Include="VulkanWrappers\PipelineConfigs.h" />
+    <ClInclude Include="VulkanWrappers\Sampler.h" />
+    <ClInclude Include="VulkanWrappers\Texture.h" />
+    <ClInclude Include="VulkanWrappers\Vulkan.h" />
+    <ClInclude Include="VulkanWrappers\VulkanImpl.h" />
+    <ClInclude Include="Zipper\Zipper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Configuration\LogConfig.txt" />
+    <Text Include="EngineChecklist.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration\LogMacro.hint" />
+    <None Include="Configuration\Macros.h" />
+    <None Include="Shaders\grid.frag.glsl" />
+    <None Include="Shaders\grid.vert.glsl" />
+    <None Include="Shaders\mesh.frag.glsl" />
+    <None Include="Shaders\mesh.vert.glsl" />
+    <None Include="Shaders\shadow.frag.glsl" />
+    <None Include="Shaders\shadow.vert.glsl" />
+    <None Include="Shaders\skybox.frag.glsl" />
+    <None Include="Shaders\skybox.vert.glsl" />
+    <None Include="Shaders\textured.frag.glsl" />
+    <None Include="Shaders\textured.vert.glsl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b67cee1f-da53-4c23-bda5-ecc3f57b412d}</ProjectGuid>
+    <RootNamespace>NestEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="lib\assimp.props" />
+    <Import Project="lib\glm.props" />
+    <Import Project="lib\SDL2.props" />
+    <Import Project="lib\SDL2_image.props" />
+    <Import Project="lib\vk-bootstrap.props" />
+    <Import Project="lib\Vulkan.props" />
+    <Import Project="lib\imgui.props" />
+    <Import Project="lib\imgui_sdl2.props" />
+    <Import Project="lib\imgui_vulkan.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="lib\assimp.props" />
+    <Import Project="lib\glm.props" />
+    <Import Project="lib\SDL2.props" />
+    <Import Project="lib\SDL2_image.props" />
+    <Import Project="lib\vk-bootstrap.props" />
+    <Import Project="lib\Vulkan.props" />
+    <Import Project="lib\imgui.props" />
+    <Import Project="lib\imgui_sdl2.props" />
+    <Import Project="lib\imgui_vulkan.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="lib\assimp.props" />
+    <Import Project="lib\glm.props" />
+    <Import Project="lib\SDL2.props" />
+    <Import Project="lib\SDL2_image.props" />
+    <Import Project="lib\vk-bootstrap.props" />
+    <Import Project="lib\Vulkan.props" />
+    <Import Project="lib\imgui.props" />
+    <Import Project="lib\imgui_sdl2.props" />
+    <Import Project="lib\imgui_vulkan.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="lib\assimp.props" />
+    <Import Project="lib\glm.props" />
+    <Import Project="lib\SDL2.props" />
+    <Import Project="lib\SDL2_image.props" />
+    <Import Project="lib\vk-bootstrap.props" />
+    <Import Project="lib\Vulkan.props" />
+    <Import Project="lib\imgui.props" />
+    <Import Project="lib\imgui_sdl2.props" />
+    <Import Project="lib\imgui_vulkan.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\TempFiles\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\TempFiles\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\TempFiles\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\TempFiles\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ImTextureID=ImU64;_MBCS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib\SDL2_mixer\include;$(ProjectDir)lib\SDL2_ttf\include;$(MSBuildThisFileDirectory)imgui-1.91.0\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>set _ASSET_NAME=Assets
+set _XML_NAME=XMLFiles
+set _SHADERS_NAME=Shaders
+set _THIRD_PARTY=$(ProjectDir)lib
+set _SDL_MIXER=SDL2_mixer\lib\$(Platform)
+set _SDL_IMAGE=SDL2_image-2.8.4\lib\$(Platform)
+set _SDL_TTF=SDL2_ttf\lib\$(Platform)
+set _SDL=SDL2-2.30.5\lib\$(Platform)
+set _ASSIMP=assimp-5.4.3\bin
+set _LOCATION=$(SolutionDir)bin\$(ProjectName)\$(Configuration)
+set _OUTPUT=$(SolutionDir)bin\$(SolutionName)\$(Configuration)
+
+echo Copying %_ASSET_NAME%...
+xcopy "$(ProjectDir)%_ASSET_NAME%" "%_LOCATION%\%_ASSET_NAME%" /d /i /y /e
+
+echo Copying %_XML_NAME%...
+xcopy "$(ProjectDir)%_XML_NAME%" "%_LOCATION%\%_XML_NAME%" /d /i /y /e
+
+echo Copying %_SHADERS_NAME%...
+xcopy "$(ProjectDir)%_SHADERS_NAME%" "%_LOCATION%\%_SHADERS_NAME%" /d /i /y /e
+
+echo Copying DLL's...
+xcopy "%_THIRD_PARTY%\%_ASSIMP%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_TTF%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_IMAGE%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_MIXER%\*.dll" "%_OUTPUT%" /d /i /y</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2main.lib;zlibstat.lib;SDL2_image.lib;SDL2_ttf.lib;assimp-vc143-mt.lib;vk-bootstrap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\SDL2_mixer\lib\$(Platform);$(ProjectDir)lib\zlib;$(ProjectDir)lib\zlib\contrib\vstudio\vc17\x64\ZlibStat$(Configuration)\;$(ProjectDir)lib\SDL2_image-2.8.4\lib\$(Platform);$(ProjectDir)lib\SDL2-2.30.5\lib\$(Platform);$(ProjectDir)lib\SDL2_ttf\lib\$(Platform);$(ProjectDir)lib\assimp-5.4.3\lib;$(ProjectDir)lib\vk-bootstrap-1.3.302\build\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CopyFileToFolders>
+      <DestinationFolders>%(DestinationFolders)</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ImTextureID=ImU64;_MBCS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib\SDL2_mixer\include;$(ProjectDir)lib\SDL2_ttf\include;$(MSBuildThisFileDirectory)imgui-1.91.0\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>set _ASSET_NAME=Assets
+set _XML_NAME=XMLFiles
+set _SHADERS_NAME=Shaders
+set _THIRD_PARTY=$(ProjectDir)lib
+set _SDL_MIXER=SDL2_mixer\lib\$(Platform)
+set _SDL_IMAGE=SDL2_image-2.8.4\lib\$(Platform)
+set _SDL_TTF=SDL2_ttf\lib\$(Platform)
+set _SDL=SDL2-2.30.5\lib\$(Platform)
+set _ASSIMP=assimp-5.4.3\bin
+set _LOCATION=$(SolutionDir)bin\$(ProjectName)\$(Configuration)
+set _OUTPUT=$(SolutionDir)bin\$(SolutionName)\$(Configuration)
+
+echo Copying %_ASSET_NAME%...
+xcopy "$(ProjectDir)%_ASSET_NAME%" "%_LOCATION%\%_ASSET_NAME%" /d /i /y /e
+
+echo Copying %_XML_NAME%...
+xcopy "$(ProjectDir)%_XML_NAME%" "%_LOCATION%\%_XML_NAME%" /d /i /y /e
+
+echo Copying %_SHADERS_NAME%...
+xcopy "$(ProjectDir)%_SHADERS_NAME%" "%_LOCATION%\%_SHADERS_NAME%" /d /i /y /e
+
+echo Copying DLL's...
+xcopy "%_THIRD_PARTY%\%_ASSIMP%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_TTF%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_IMAGE%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_MIXER%\*.dll" "%_OUTPUT%" /d /i /y</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2main.lib;zlibstat.lib;SDL2_image.lib;SDL2_ttf.lib;assimp-vc143-mt.lib;vk-bootstrap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\SDL2_mixer\lib\$(Platform);$(ProjectDir)lib\zlib;$(ProjectDir)lib\zlib\contrib\vstudio\vc17\x64\ZlibStat$(Configuration)\;$(ProjectDir)lib\SDL2_image-2.8.4\lib\$(Platform);$(ProjectDir)lib\SDL2-2.30.5\lib\$(Platform);$(ProjectDir)lib\SDL2_ttf\lib\$(Platform);$(ProjectDir)lib\assimp-5.4.3\lib;$(ProjectDir)lib\vk-bootstrap-1.3.302\build\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CopyFileToFolders>
+      <DestinationFolders>%(DestinationFolders)</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ImTextureID=ImU64;_MBCS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib\SDL2_mixer\include;$(ProjectDir)lib\SDL2_ttf\include;$(MSBuildThisFileDirectory)imgui-1.91.0\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>set _ASSET_NAME=Assets
+set _XML_NAME=XMLFiles
+set _SHADERS_NAME=Shaders
+set _THIRD_PARTY=$(ProjectDir)lib
+set _SDL_MIXER=SDL2_mixer\lib\$(Platform)
+set _SDL_IMAGE=SDL2_image-2.8.4\lib\$(Platform)
+set _SDL_TTF=SDL2_ttf\lib\$(Platform)
+set _SDL=SDL2-2.30.5\lib\$(Platform)
+set _ASSIMP=assimp-5.4.3\bin
+set _LOCATION=$(SolutionDir)bin\$(ProjectName)\$(Configuration)
+set _OUTPUT=$(SolutionDir)bin\$(SolutionName)\$(Configuration)
+
+echo Copying %_ASSET_NAME%...
+xcopy "$(ProjectDir)%_ASSET_NAME%" "%_LOCATION%\%_ASSET_NAME%" /d /i /y /e
+
+echo Copying %_XML_NAME%...
+xcopy "$(ProjectDir)%_XML_NAME%" "%_LOCATION%\%_XML_NAME%" /d /i /y /e
+
+echo Copying %_SHADERS_NAME%...
+xcopy "$(ProjectDir)%_SHADERS_NAME%" "%_LOCATION%\%_SHADERS_NAME%" /d /i /y /e
+
+echo Copying DLL's...
+xcopy "%_THIRD_PARTY%\%_ASSIMP%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_TTF%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_IMAGE%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_MIXER%\*.dll" "%_OUTPUT%" /d /i /y</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2main.lib;zlibstat.lib;SDL2_image.lib;SDL2_ttf.lib;assimp-vc143-mt.lib;vk-bootstrap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\SDL2_mixer\lib\$(Platform);$(ProjectDir)lib\zlib;$(ProjectDir)lib\zlib\contrib\vstudio\vc17\x64\ZlibStat$(Configuration)\;$(ProjectDir)lib\SDL2_image-2.8.4\lib\$(Platform);$(ProjectDir)lib\SDL2-2.30.5\lib\$(Platform);$(ProjectDir)lib\SDL2_ttf\lib\$(Platform);$(ProjectDir)lib\assimp-5.4.3\lib;$(ProjectDir)lib\vk-bootstrap-1.3.302\build\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CopyFileToFolders>
+      <DestinationFolders>%(DestinationFolders)</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ImTextureID=ImU64;_MBCS;_RELEASE;_CONSOLE;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib\SDL2_mixer\include;$(ProjectDir)lib\SDL2_ttf\include;$(MSBuildThisFileDirectory)imgui-1.91.0\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>set _ASSET_NAME=Assets
+set _XML_NAME=XMLFiles
+set _SHADERS_NAME=Shaders
+set _THIRD_PARTY=$(ProjectDir)lib
+set _SDL_MIXER=SDL2_mixer\lib\$(Platform)
+set _SDL_IMAGE=SDL2_image-2.8.4\lib\$(Platform)
+set _SDL_TTF=SDL2_ttf\lib\$(Platform)
+set _SDL=SDL2-2.30.5\lib\$(Platform)
+set _ASSIMP=assimp-5.4.3\bin
+set _LOCATION=$(SolutionDir)bin\$(ProjectName)\$(Configuration)
+set _OUTPUT=$(SolutionDir)bin\$(SolutionName)\$(Configuration)
+
+echo Copying %_ASSET_NAME%...
+xcopy "$(ProjectDir)%_ASSET_NAME%" "%_LOCATION%\%_ASSET_NAME%" /d /i /y /e
+
+echo Copying %_XML_NAME%...
+xcopy "$(ProjectDir)%_XML_NAME%" "%_LOCATION%\%_XML_NAME%" /d /i /y /e
+
+echo Copying %_SHADERS_NAME%...
+xcopy "$(ProjectDir)%_SHADERS_NAME%" "%_LOCATION%\%_SHADERS_NAME%" /d /i /y /e
+
+echo Copying DLL's...
+xcopy "%_THIRD_PARTY%\%_ASSIMP%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_TTF%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_IMAGE%\*.dll" "%_OUTPUT%" /d /i /y
+xcopy "%_THIRD_PARTY%\%_SDL_MIXER%\*.dll" "%_OUTPUT%" /d /i /y</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;SDL2main.lib;zlibstat.lib;SDL2_image.lib;SDL2_ttf.lib;assimp-vc143-mt.lib;vk-bootstrap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\SDL2_mixer\lib\$(Platform);$(ProjectDir)lib\zlib;$(ProjectDir)lib\zlib\contrib\vstudio\vc17\x64\ZlibStat$(Configuration)\;$(ProjectDir)lib\SDL2_image-2.8.4\lib\$(Platform);$(ProjectDir)lib\SDL2-2.30.5\lib\$(Platform);$(ProjectDir)lib\SDL2_ttf\lib\$(Platform);$(ProjectDir)lib\assimp-5.4.3\lib;$(ProjectDir)lib\vk-bootstrap-1.3.302\build\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CopyFileToFolders>
+      <DestinationFolders>%(DestinationFolders)</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

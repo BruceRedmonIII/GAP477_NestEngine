@@ -1,0 +1,13 @@
+class CameraObject : public GameObject
+    m_camera : CameraComponent
+    m_kins : KinematicComponent
+    
+
+class CameraComponent : public Component
+    m_owner : GameObject
+    m_data : CameraData // data specific to the camera such as position, as the position isn't necessarily the transforms position
+    m_id : cameraId
+
+class CameraManager : public Manager
+    m_cameras : vector<CameraComponent>
+    m_primaryCamera : CameraComponent

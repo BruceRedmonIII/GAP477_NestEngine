@@ -1,0 +1,10 @@
+<!-- 	
+	   4~~~~5
+	  /|   /|
+	 0~~~~1 |
+	 | 7~~|~6    y z
+	 |/   |/     |/
+	 3~~~~2      +~~x 
+-->
+<!-- Name does nothing but helps with debug, LoadFile is the location of the mesh, WorldPosition is as stated, and scale is multiplicative-->
+<Scene Name="Gameplay" LoadFile="Assets/RubberDuck/TextureAndLight.gltf"/>

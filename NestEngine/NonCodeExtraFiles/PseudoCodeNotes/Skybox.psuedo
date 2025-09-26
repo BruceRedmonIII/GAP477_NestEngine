@@ -1,0 +1,9 @@
+class ResourceManager : Managers
+    counter : int
+    invalidIndex : int
+    materialMap : unordered_map<int, Material>
+    textures : unordered_map<int, Texture>
+    textureUniform : ShaderUniform
+
+class SkyboxManager : Managers
+    

@@ -1,0 +1,7 @@
+Step one:
+Render all opaque objects closest to furthest from camera
+(this will keep us from having to draw overtop of pixels)
+
+Step Two:
+Render all transparent objects furthest to closest to camera
+(this will correctly merge the pixels from the furthest object, to that of the closest)

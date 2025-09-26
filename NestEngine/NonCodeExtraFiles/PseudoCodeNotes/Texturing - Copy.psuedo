@@ -1,0 +1,23 @@
+class PathManager : Manager
+    std::multimap<key, path> pathMap;
+    
+    void AddPath(HashedId key, const char* path)
+    {
+        pathMap.emplace(key, path);
+    }
+    // if xml folder is set as a path, you can load additional paths from an xml file
+    void LoadPathsFromXML(const char* path, key = 0)
+    {
+        // parse information
+    }
+
+    const char* ResolvePath()
+    {
+        
+    }
+
+
+void CreateMesh(const char* path)
+{
+    
+}
