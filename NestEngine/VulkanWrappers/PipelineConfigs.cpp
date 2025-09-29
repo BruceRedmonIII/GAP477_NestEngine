@@ -34,6 +34,16 @@ nest::Pipeline* nest::CreateMeshPipeline()
 						.setBinding(0)
 						.setFormat(vk::Format::eR32G32B32Sfloat)
 						.setOffset(offsetof(MeshVertex, MeshVertex::normal)),
+					vk::VertexInputAttributeDescription()
+						.setLocation(2)
+						.setBinding(0)
+						.setFormat(vk::Format::eR32G32Sfloat)
+						.setOffset(offsetof(MeshVertex, MeshVertex::tangent)),
+					vk::VertexInputAttributeDescription()
+						.setLocation(3)
+						.setBinding(0)
+						.setFormat(vk::Format::eR32G32Sfloat)
+						.setOffset(offsetof(MeshVertex, MeshVertex::bitangent)),
 				},
 				.shaderPushConstants =
 				{
@@ -154,6 +164,16 @@ nest::Pipeline* nest::CreateTexturedMeshPipeline()
 					.setBinding(0)
 					.setFormat(vk::Format::eR32G32Sfloat)
 					.setOffset(offsetof(MeshVertex, MeshVertex::texcoord0)),
+				vk::VertexInputAttributeDescription()
+					.setLocation(3)
+					.setBinding(0)
+					.setFormat(vk::Format::eR32G32Sfloat)
+					.setOffset(offsetof(MeshVertex, MeshVertex::tangent)),
+				vk::VertexInputAttributeDescription()
+					.setLocation(4)
+					.setBinding(0)
+					.setFormat(vk::Format::eR32G32Sfloat)
+					.setOffset(offsetof(MeshVertex, MeshVertex::bitangent)),
 			},
 			.shaderPushConstants =
 			{
@@ -172,7 +192,8 @@ nest::Pipeline* nest::CreateTexturedMeshPipeline()
 				nest::ResourceManager::s_roughnessUniform,
 				nest::ResourceManager::s_metallicUniform,
 				nest::ResourceManager::s_ambientOcclusion,
-				nest::ResourceManager::s_opacityUniform
+				nest::ResourceManager::s_opacityUniform,
+				nest::SkyboxManager::s_skyboxUniform
 			},
 			.shaderStages =
 			{
@@ -237,6 +258,16 @@ void nest::RebuildTexturedMeshPipeline(nest::Pipeline* pipeline)
 					.setBinding(0)
 					.setFormat(vk::Format::eR32G32Sfloat)
 					.setOffset(offsetof(MeshVertex, MeshVertex::texcoord0)),
+				vk::VertexInputAttributeDescription()
+					.setLocation(3)
+					.setBinding(0)
+					.setFormat(vk::Format::eR32G32Sfloat)
+					.setOffset(offsetof(MeshVertex, MeshVertex::tangent)),
+						vk::VertexInputAttributeDescription()
+					.setLocation(4)
+					.setBinding(0)
+					.setFormat(vk::Format::eR32G32Sfloat)
+					.setOffset(offsetof(MeshVertex, MeshVertex::bitangent))
 			},
 			.shaderPushConstants =
 			{
@@ -255,7 +286,8 @@ void nest::RebuildTexturedMeshPipeline(nest::Pipeline* pipeline)
 				nest::ResourceManager::s_roughnessUniform,
 				nest::ResourceManager::s_metallicUniform,
 				nest::ResourceManager::s_ambientOcclusion,
-				nest::ResourceManager::s_opacityUniform
+				nest::ResourceManager::s_opacityUniform,
+				nest::SkyboxManager::s_skyboxUniform
 			},
 			.shaderStages =
 			{
@@ -315,6 +347,16 @@ void nest::RebuildMeshPipeline(nest::Pipeline* pipeline)
 						.setBinding(0)
 						.setFormat(vk::Format::eR32G32B32Sfloat)
 						.setOffset(offsetof(MeshVertex, MeshVertex::normal)),
+					vk::VertexInputAttributeDescription()
+						.setLocation(2)
+						.setBinding(0)
+						.setFormat(vk::Format::eR32G32Sfloat)
+						.setOffset(offsetof(MeshVertex, MeshVertex::tangent)),
+					vk::VertexInputAttributeDescription()
+						.setLocation(3)
+						.setBinding(0)
+						.setFormat(vk::Format::eR32G32Sfloat)
+						.setOffset(offsetof(MeshVertex, MeshVertex::bitangent))
 				},
 				.shaderPushConstants =
 				{

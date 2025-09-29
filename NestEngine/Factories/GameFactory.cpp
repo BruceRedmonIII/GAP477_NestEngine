@@ -171,18 +171,24 @@ void nest::GameFactory::GatherAllMaterials(const aiScene* scene)
             else
             {
                 auto pbrStack = nest::Engine::GetManager<nest::ResourceManager>()->GetTexture(mater.textureId);
-                if (pbrStack->GetTexture(Material::eDiffuse) != nullptr)
+                // isValid will set itself to false if texture was not found
+                // the texture will however be a valid default texture in order to still
+                // pass a descriptor set to the pipeline
+                if (pbrStack->GetTexture(Material::eDiffuse)->isValid)
                     mater.textureFlags = Material::eDiffuse;
-                if (pbrStack->GetTexture(Material::eNormal) != nullptr)
+                if (pbrStack->GetTexture(Material::eNormal)->isValid)
                     mater.textureFlags += Material::eNormal;
-                if (pbrStack->GetTexture(Material::eRoughness) != nullptr)
+                if (pbrStack->GetTexture(Material::eRoughness)->isValid)
                     mater.textureFlags += Material::eRoughness;
-                if (pbrStack->GetTexture(Material::eAO) != nullptr)
+                if (pbrStack->GetTexture(Material::eAO)->isValid)
                     mater.textureFlags += Material::eAO;
-                if (pbrStack->GetTexture(Material::eMetallic) != nullptr)
+                if (pbrStack->GetTexture(Material::eMetallic)->isValid)
                     mater.textureFlags += Material::eMetallic;
-                if (pbrStack->GetTexture(Material::eOpacity) != nullptr)
+                if (pbrStack->GetTexture(Material::eOpacity)->isValid)
+                {
                     mater.textureFlags += Material::eOpacity;
+                    mater.hasTransparency = true;
+                }
             }
         }
         else
@@ -202,10 +208,10 @@ void nest::GameFactory::GatherAllMaterials(const aiScene* scene)
                 material->Get(AI_MATKEY_BASE_COLOR, rgba);
                 mater.color = { rgba.r, rgba.g, rgba.b, rgba.a };
             }
+            material->Get(AI_MATKEY_METALLIC_FACTOR, mater.metallic);
+            material->Get(AI_MATKEY_ROUGHNESS_FACTOR, mater.roughness);
             mater.hasTexture = false;
         }
-        material->Get(AI_MATKEY_SHININESS, mater.shininess);
-        
         nest::Engine::GetManager<nest::ResourceManager>()->AddMaterial(i, mater);
 
 #if _PRINT_MATERIAL_PROPERTIES == 1

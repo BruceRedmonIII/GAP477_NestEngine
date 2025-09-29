@@ -1,7 +1,5 @@
 #include "Window.h"
 #include "../Configuration/LogMacro.hint"
-#include <filesystem>
-#include <cassert>
 #include <SDL.h>
 nest::Window::Window()
     : m_pWindow(nullptr)

@@ -32,13 +32,15 @@ namespace nest
 		};
 
 		Vec4 color = { 1.0f, 1.0f, 1.0f, 1.0f };
-		float shininess = .1f;
+		float metallic = .5f;
+		float roughness = .5f;
 #if _ENABLE_LIGHTING == 1
 		uint32_t enableLighting = true;
 #else
 		uint32_t enableLighting = false;
 #endif
 		uint32_t hasTexture = false;
+		uint32_t hasTransparency = false;
 		uint32_t textureFlags = eNoTexture;
 		int textureId = -1;
 		int textureRepeatCount = 1;
@@ -49,12 +51,13 @@ namespace nest
 #endif
 		float shadowBias = 0.005f;
 	};
-
 	struct MeshVertex 
 	{
 		Vec3 position{};
 		alignas(16) Vec3 normal{0.f, 1.f, 0.f};
 		alignas(16) Vec2 texcoord0{};
+		alignas(16) Vec3 tangent{ 0.f, 1.f, 0.f };
+		alignas(16) Vec3 bitangent{ 0.f, 1.f, 0.f };
 	};
 
 	struct Light
@@ -71,9 +74,14 @@ namespace nest
 		alignas(16) Vec3 position{};
 		alignas(16) Vec3 attenuation{};
 		alignas(16) Vec3 direction{};
+		alignas(16) Vec3 up{};
 		alignas(16) Vec2 size{};
+		float lightRange = 50.f; // How far the light will go in a single direction
+		// spotlight data
 		float innerCone = 0.f;
 		float outerCone = 0.f;
+		float cutoff = 0.0f;
+		//------------------------
 		alignas(16) Mat4 viewProj = glm::identity<glm::mat4>();
 	};
 	

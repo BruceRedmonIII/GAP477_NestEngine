@@ -22,7 +22,6 @@ nest::Texture::Texture(const std::string &path, Material::TextureFlags flag)
 	SDL_Surface* color = LoadCompatibleImage(path);
 	if (color == nullptr)
 	{
-		_LOG_V(LogType::kError, "Invalid Path! - ", path);
 		isValid = false;
 	}
     sampler = BLEACH_NEW(Sampler{});
@@ -32,8 +31,8 @@ nest::Texture::Texture(const std::string &path, Material::TextureFlags flag)
 
 	sampler->sampler = nest::Engine::GetGraphics()->m_vulkanWrapper->vulkan.GetDevice().createSampler(
 		vk::SamplerCreateInfo()
-		.setAddressModeU(vk::SamplerAddressMode::eClampToBorder)
-		.setAddressModeV(vk::SamplerAddressMode::eClampToBorder)
+		.setAddressModeU(vk::SamplerAddressMode::eClampToEdge)
+		.setAddressModeV(vk::SamplerAddressMode::eClampToEdge)
 		.setMinFilter(vk::Filter::eLinear)
 		.setMagFilter(vk::Filter::eLinear)
 	
@@ -52,14 +51,20 @@ nest::Texture::Texture(const std::string &path, Material::TextureFlags flag)
 	else
 	{
 		color = SDL_CreateRGBSurface(0, // Flags (0 for default behavior)
-			1, // Width in pixels
-			1, // Height in pixels
+			1048, // Width in pixels
+			1048, // Height in pixels
 			32,  // Depth (bits per pixel, e.g., 32 for RGBA)
 			0,   // Rmask (0 for default based on depth)
 			0,   // Gmask (0 for default based on depth)
 			0,   // Bmask (0 for default based on depth)
 			0    // Amask (0 for default, results in Amask of 0)
 		);
+		SDL_Surface* newFormat = SDL_ConvertSurfaceFormat(color, SDL_PIXELFORMAT_ABGR8888, 0);
+		if (newFormat)
+		{
+			SDL_FreeSurface(color);
+			color = newFormat;
+		}
 		std::tie(image->image, imageView->view) = nest::Engine::GetGraphics()->m_vulkanWrapper->vulkan.CreateTexture2DImageAndView(
 			{ static_cast<uint32_t>(color->w), static_cast<uint32_t>(color->h) },
 			GAP311::VulkanWrapper::VulkanFormatFromSDLFormat(color->format->format),
@@ -93,7 +98,6 @@ SDL_Surface* nest::Texture::LoadCompatibleImage(std::filesystem::path imageFile,
 	SDL_Surface* surface = IMG_Load(imageFile.string().c_str());
 	if (!surface)
 	{
-		_LOG(LogType::kError, "Image file could not be found!");
 		return nullptr;
 	}
 

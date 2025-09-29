@@ -1,25 +1,23 @@
-#include "../Nodes/Node.h"
+#include "../Configuration/LogMacro.hint"
 #include "../Engine/Engine.h"
-#include "../Managers/GraphicsSystem.h"
+#include "../GlobalConstants/constants.h"  
+#include "../lib/BleachNew/BleachNew.h"
 #include "../Managers/CameraManager.h"
+#include "../Managers/GraphicsSystem.h"
 #include "../Managers/LightManager.h"
 #include "../Managers/ResourceManager.h"
-#include "../Scene/Scene.h"
-#include "../GlobalConstants/constants.h"  
-#include "../Uniforms/MeshDataStructs.h"
-#include "../VulkanWrappers/Pipeline.h"
-#include "../VulkanWrappers/Vulkan.h"
-#include "../VulkanWrappers/DescriptorSet.h"
-#include "../Configuration/LogMacro.hint"
-#include "../VulkanWrappers/Texture.h"
+#include "../Managers/SkyboxManager.h"
 #include "../Math/MathAlias.h"
-#include "../lib/BleachNew/BleachNew.h"
-#include "../Objects/CameraObject.h"
-#include <iostream>
+#include "../Nodes/Node.h"
+#include "../Uniforms/MeshDataStructs.h"
+#include "../VulkanWrappers/DescriptorSet.h"
+#include "../VulkanWrappers/Pipeline.h"
+#include "../VulkanWrappers/Texture.h"
+#include "../VulkanWrappers/Vulkan.h"
 #include <assimp/mesh.h>
 #include <assimp/scene.h>
-#include <assimp/StringUtils.h>
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
 nest::ParentNode::~ParentNode()
 {
     for (auto& child : m_children)
@@ -41,6 +39,7 @@ void nest::MeshNode::RenderRelative(const Pipeline* pipeline, vk::CommandBuffer&
 
 void nest::MeshNode::RenderWorld(const Pipeline* pipeline, vk::CommandBuffer& commands) const
 {
+    auto camUniform = nest::Engine::GetManager<CameraManager>()->GetActiveCameraUniform();
     PushConstants constants;
     constants.objectMatrix = m_meshData.transform;
     constants.objectMaterial = m_meshData.material;
@@ -87,7 +86,8 @@ void nest::MeshNode::BindToPipeline(const Pipeline* pipeline, vk::CommandBuffer&
             roughnessSet,
             metallicSet,
             aoSet,
-            opacitySet }, {});
+            opacitySet,
+            SkyboxManager::s_skyboxUniform }, {});
     }
     else
     {
@@ -171,6 +171,40 @@ void nest::MeshNode::BuildBuffers()
     m_vertexBuffer->SetBuffer(nest::Engine::GetGraphics()->m_vulkanWrapper->vulkan.CreateBuffer(vk::BufferUsageFlagBits::eVertexBuffer, sizeof(m_vertices[0]) * m_vertices.size(), m_vertices.data()));
 }
 
+void nest::MeshNode::BuildTangents()
+{
+    for (int i = 0; i < m_vertices.size(); i += 3)
+    {
+        // Shortcuts for vertices
+        glm::vec3& v0 = m_vertices[i + 0].position;
+        glm::vec3& v1 = m_vertices[i + 1].position;
+        glm::vec3& v2 = m_vertices[i + 2].position;
+
+        // Shortcuts for UVs
+        glm::vec2& uv0 = m_vertices[i + 0].texcoord0;
+        glm::vec2& uv1 = m_vertices[i + 1].texcoord0;
+        glm::vec2& uv2 = m_vertices[i + 2].texcoord0;
+
+        // Edges of the triangle : position delta
+        glm::vec3 deltaPos1 = v1 - v0;
+        glm::vec3 deltaPos2 = v2 - v0;
+
+        // UV delta
+        glm::vec2 deltaUV1 = uv1 - uv0;
+        glm::vec2 deltaUV2 = uv2 - uv0;
+        float r = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
+        glm::vec3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y) * r;
+        glm::vec3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x) * r;
+        m_vertices[i + 0].tangent = tangent;
+        m_vertices[i + 1].tangent = tangent;
+        m_vertices[i + 2].tangent = tangent;
+
+        m_vertices[i + 0].bitangent = bitangent;
+        m_vertices[i + 1].bitangent = bitangent;
+        m_vertices[i + 2].bitangent = bitangent;
+    }
+}
+
 void nest::MeshNode::QueRender()
 {
     nest::Engine::GetGraphics()->QueRender(this);
@@ -224,7 +258,7 @@ void nest::BaseNode::SetMeshData(const aiNode* node)
 
 bool nest::BaseNode::IsOpaque() const
 {
-    return (m_meshData.material.color.w >= 1.f);
+    return (m_meshData.material.color.w >= 1.f && m_meshData.material.hasTransparency == false);
 }
 
 
@@ -247,14 +281,16 @@ nest::BaseNode* nest::ParentNode::FindNode(HashedId id)
 nest::LightNode::LightNode(const aiLight* aiLight, const aiNode* aiNode)
 {
     BaseNode::SetMeshData(aiNode);
-    m_lightData.diffuse = glm::normalize(Vec3{ aiLight->mColorDiffuse.r, aiLight->mColorDiffuse.g, aiLight->mColorDiffuse.b });
+    m_lightData.diffuse = Vec3{ aiLight->mColorDiffuse.r, aiLight->mColorDiffuse.g, aiLight->mColorDiffuse.b };
     m_lightData.position = m_meshData.transform[3];
     m_lightData.size = { aiLight->mSize.x, aiLight->mSize.y };
-    m_lightData.direction = { aiLight->mDirection.x, aiLight->mDirection.y, aiLight->mDirection.z };
+    m_lightData.up = { aiLight->mUp.x, aiLight->mUp.y, aiLight->mUp.z };
+    m_lightData.direction = { -aiLight->mDirection.z, aiLight->mDirection.y, aiLight->mDirection.x };
     m_lightData.attenuation = { aiLight->mAttenuationConstant, aiLight->mAttenuationLinear, aiLight->mAttenuationQuadratic };
-    m_lightData.innerCone = aiLight->mAngleInnerCone;
-    m_lightData.outerCone = aiLight->mAngleOuterCone;
+    m_lightData.innerCone = glm::degrees(aiLight->mAngleInnerCone);
+    m_lightData.outerCone = glm::degrees(aiLight->mAngleOuterCone);
 
+    m_lightData.cutoff = glm::cos(glm::radians(m_lightData.outerCone)); // should already be in radians
     switch (aiLight->mType)
     {
     case aiLightSourceType::aiLightSource_POINT:

@@ -69,6 +69,7 @@ namespace nest
 		void AddVertex(nest::MeshVertex vertex) { m_vertices.emplace_back(vertex); }
 		void AddIndex(uint32_t index) { m_indices.emplace_back(index); ++m_indexCount; }
 		void BuildBuffers();
+		void BuildTangents();
 		void QueRender() override;
 		void Render([[maybe_unused]] vk::CommandBuffer& commands) const override;
 		void RenderRelative(const Pipeline* pipeline, [[maybe_unused]] vk::CommandBuffer& commands)  const;

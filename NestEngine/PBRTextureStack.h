@@ -19,5 +19,12 @@ namespace nest
         ~PBRTextureStack();
         bool IsValid() const { return m_isValid; };
         Texture* GetTexture(Material::TextureFlags type);
+    private:
+        void ResolveDiffuse(aiMaterial* material);
+        void ResolveNormal(aiMaterial* material);
+        void ResolveRoughness(aiMaterial* material);
+        void ResolveMetallic(aiMaterial* material);
+        void ResolveAO(aiMaterial* material);
+        void ResolveOpacity(aiMaterial* material);
     };
 }

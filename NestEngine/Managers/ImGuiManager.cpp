@@ -70,7 +70,9 @@ bool CheckIfLightChanged(const nest::Light& left, const nest::Light& right)
 		left.type == right.type &&
 		left.innerCone == right.innerCone &&
 		left.outerCone == right.outerCone &&
-		left.position == right.position)
+		left.position == right.position &&
+		left.direction == right.direction &&
+		left.lightRange == right.lightRange)
 		return false;
 	return true;
 }
@@ -138,24 +140,30 @@ void nest::ImGuiManager::PreRender() const
 			nest::Engine::GetGraphics()->RebuildMeshPipelines();
 		int count = 0;
 		auto lightManager = Engine::GetManager<LightManager>();
+		Light lightData{};
 		for (auto& light : lightManager->GetLights())
 		{
-			if (ImGui::CollapsingHeader("Light " + count))
+			if (ImGui::CollapsingHeader("Light"))
 			{
+				lightData = light->GetData();
 				rebuildNeeded = false;
-				Light lightData = light->GetData();
 				ImGui::DragFloat3("Position", glm::value_ptr(lightData.position));
 				ImGui::DragFloat3("Atten", glm::value_ptr(lightData.attenuation));
+				ImGui::InputFloat3("Direction", glm::value_ptr(lightData.direction));
+				ImGui::InputFloat("LightRange", &lightData.lightRange, 1.0, 5.0);
+				ImGui::InputFloat("InnerCone", &lightData.innerCone, 1.0, 5.0);
+				ImGui::InputFloat("OuterCone", &lightData.outerCone, 1.0, 5.0);
 				ImGui::ColorPicker3("diffuse", glm::value_ptr(lightData.diffuse));
 				const char* types[] = { "Point", "Sun", "Spot", "Area" }; // These types must match the order of the enum
 				int typeIndex = static_cast<int>(lightData.type);
 				if (ImGui::ListBox("Type", &typeIndex, types, IM_ARRAYSIZE(types), 4))
 				{
-					lightData.type = static_cast<decltype(lightData.type)>(typeIndex);
+					lightData.type = static_cast<decltype(Light::type)>(typeIndex);
 				}
 				rebuildNeeded |= CheckIfLightChanged(lightData, light->GetData());
 				if (rebuildNeeded)
 				{
+					lightData.cutoff = glm::cos(glm::radians(lightData.outerCone));
 					light->SetData(lightData);
 				}
 

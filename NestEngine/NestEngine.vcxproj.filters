@@ -85,6 +85,9 @@
     <Filter Include="Tiling">
       <UniqueIdentifier>{a0ccbc63-2448-44d5-823f-0b91c3ee3e75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\stb_image">
+      <UniqueIdentifier>{1c918285-2c0c-468a-a89d-79e9a70584cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Parsing\XMLFile.cpp">
@@ -518,6 +521,9 @@
       <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="PBRTextureStack.h" />
+    <ClInclude Include="lib\stb_image\stb_image.h">
+      <Filter>lib\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Configuration\LogConfig.txt">

@@ -673,7 +673,7 @@ namespace GAP311
 				if (ShouldBreakOnError(breakOnError, severity, type))
 	 					SDL_TriggerBreakpoint();
 			};
-	}    
+	}		
 	inline vk::Format VulkanWrapper::VulkanFormatFromSDLFormat(Uint32 sdl_format)
 	{
 		switch (sdl_format)

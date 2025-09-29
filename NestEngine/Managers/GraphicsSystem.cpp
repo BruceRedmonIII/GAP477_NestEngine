@@ -190,6 +190,10 @@ void nest::GraphicsSystem::RebuildMeshPipelines()
 	}
 }
 
+// Currently RenderShadows only works for directional lights 
+// To modify this to work for point lights, we have to adjust the center for
+// our view matrix. To do this we also need to allocate 6 shadow maps to store the different directions
+// of the point light
 void nest::GraphicsSystem::RenderShadows(vk::CommandBuffer& commands)
 {
 	constexpr vk::ClearValue clearValues[] =
@@ -213,18 +217,30 @@ void nest::GraphicsSystem::RenderShadows(vk::CommandBuffer& commands)
 	//for (int i = 0; i < lightManager->m_uniform.lightCount; ++i)
 	//{
 		Vec3 eyePos = uniform.light0.position;
+		// sun lights point to the origin
 		Vec3 center = { 0.0f, 0.0f, 0.0f };
 		Vec3 up = { 0.0f, 1.0f, 0.0f };
-
 		// Check if eye position is too close to center to avoid zero-length forward vector
 		if (glm::length(eyePos - center) < 0.001f)
 		{
 			// Move eyePos slightly away from center to avoid NaNs
 			eyePos = { 0.0f, 0.0f, 1.0f };
 		}
-
+		if (uniform.light0.type == Light::ePoint)
+		{
+			center = { 0.0f, 0.0f, 0.0f };
+		}
 		Mat4 lightViewMatrix = glm::lookAt(eyePos, center, up);
-		Mat4 lightProjMatrix = glm::perspective(m_shadowSettings.lightFOV, m_shadowSettings.lightAspect, m_shadowSettings.lightNear, m_shadowSettings.lightFar);
+		Mat4 lightProjMatrix{};
+		if (uniform.light0.type == Light::eSpot)
+		{
+			float near_plane = 1.0f;
+			lightProjMatrix = glm::ortho(-uniform.light0.outerCone, uniform.light0.outerCone, -uniform.light0.outerCone, uniform.light0.outerCone, near_plane, uniform.light0.lightRange);
+		}
+		else
+		{
+			lightProjMatrix = glm::perspective(m_shadowSettings.lightFOV, m_shadowSettings.lightAspect, m_shadowSettings.lightNear, m_shadowSettings.lightFar);
+		}
 		Mat4 lightProjView = lightProjMatrix * lightViewMatrix;
 		uniform.light0.viewProj = lightProjView;
 		camManager->SetCameraUniform(uniform);

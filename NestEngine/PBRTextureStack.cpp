@@ -6,20 +6,12 @@
 nest::PBRTextureStack::PBRTextureStack(const std::string& path, aiMaterial* material)
 {
     aiString filePath{};
-    material->GetTexture(aiTextureType::aiTextureType_DIFFUSE, 0, &filePath);
-    m_diffuse = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eDiffuse));
-    if (m_diffuse->isValid)
-        m_isValid = true;
-    material->GetTexture(aiTextureType::aiTextureType_DIFFUSE_ROUGHNESS, 0, &filePath);
-    m_roughness = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eRoughness));
-    material->GetTexture(aiTextureType::aiTextureType_AMBIENT_OCCLUSION, 0, &filePath);
-    m_ambientOcclusion = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eAO));
-    material->GetTexture(aiTextureType::aiTextureType_METALNESS, 0, &filePath);
-    m_metallic = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eMetallic));
-    material->GetTexture(aiTextureType::aiTextureType_NORMALS, 0, &filePath);
-    m_normal = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eNormal));
-    material->GetTexture(aiTextureType::aiTextureType_OPACITY, 0, &filePath);
-    m_opacity = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eOpacity));
+    ResolveDiffuse(material);
+    ResolveNormal(material);
+    ResolveRoughness(material);
+    ResolveMetallic(material);
+    ResolveAO(material);
+    ResolveOpacity(material);
 }
 
 nest::PBRTextureStack::~PBRTextureStack()
@@ -30,6 +22,63 @@ nest::PBRTextureStack::~PBRTextureStack()
     BLEACH_DELETE(m_metallic);
     BLEACH_DELETE(m_normal);
     BLEACH_DELETE(m_opacity);
+}
+
+void nest::PBRTextureStack::ResolveDiffuse(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_DIFFUSE, 0, &filePath) == AI_SUCCESS)
+        m_diffuse = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eDiffuse));
+    else
+        m_diffuse = BLEACH_NEW(Texture("", Material::eDiffuse));
+
+    if (m_diffuse->isValid)
+        m_isValid = true;
+}
+
+void nest::PBRTextureStack::ResolveNormal(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_NORMALS, 0, &filePath) == AI_SUCCESS)
+        m_normal = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eNormal));
+    else
+        m_normal = BLEACH_NEW(Texture("", Material::eNormal));
+}
+
+void nest::PBRTextureStack::ResolveRoughness(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_DIFFUSE_ROUGHNESS, 0, &filePath) == AI_SUCCESS)
+        m_roughness = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eRoughness));
+    else
+        m_roughness = BLEACH_NEW(Texture("", Material::eRoughness));
+}
+
+void nest::PBRTextureStack::ResolveMetallic(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_METALNESS, 0, &filePath) == AI_SUCCESS)
+        m_metallic = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eMetallic));
+    else
+        m_metallic = BLEACH_NEW(Texture("", Material::eMetallic));
+}
+
+void nest::PBRTextureStack::ResolveAO(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_AMBIENT_OCCLUSION, 0, &filePath) == AI_SUCCESS)
+        m_ambientOcclusion = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eAO));
+    else
+        m_ambientOcclusion = BLEACH_NEW(Texture("", Material::eAO));
+}
+
+void nest::PBRTextureStack::ResolveOpacity(aiMaterial* material)
+{
+    aiString filePath{};
+    if (material->GetTexture(aiTextureType::aiTextureType_OPACITY, 0, &filePath) == AI_SUCCESS)
+        m_opacity = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eOpacity));
+    else
+        m_opacity = BLEACH_NEW(Texture("", Material::eOpacity));
 }
 
 nest::Texture* nest::PBRTextureStack::GetTexture(Material::TextureFlags type)

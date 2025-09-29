@@ -102,6 +102,7 @@
     <ClInclude Include="lib\gap-311\VulkanWrapper.hpp" />
     <ClInclude Include="lib\imgui-1.91.0\imconfig.h" />
     <ClInclude Include="lib\imgui-1.91.0\imgui_internal.h" />
+    <ClInclude Include="lib\stb_image\stb_image.h" />
     <ClInclude Include="lib\tinyxml2\tinyxml2.h" />
     <ClInclude Include="Managers\CameraManager.h" />
     <ClInclude Include="Managers\EventManager.h" />

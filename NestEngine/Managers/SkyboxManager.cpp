@@ -12,9 +12,10 @@
 #include "../GlobalConstants/constants.h"
 #include "../Nodes/Node.h"
 #include "CameraManager.h"
-#include <ranges>
-#include <SDL.h>
+//#define STB_IMAGE_IMPLEMENTATION
+//#include "../lib/stb_image/stb_image.h"
 #include "FileManager.h"
+#include <SDL.h>
 
 GAP311::ShaderUniform nest::SkyboxManager::s_skyboxUniform{};
 
