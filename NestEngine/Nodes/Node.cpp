@@ -74,10 +74,10 @@ void nest::MeshNode::BindToPipeline(const Pipeline* pipeline, vk::CommandBuffer&
     if (m_meshData.material.hasTexture)
     {
         auto stack = nest::Engine::GetManager<nest::ResourceManager>()->GetTexture(m_meshData.material.textureId);
-        auto diffuseSet = (m_meshData.material.textureFlags & Material::eDiffuse) ? stack->GetTexture(Material::eDiffuse)->set->set : nullptr;
-        auto normalSet = (m_meshData.material.textureFlags & Material::eNormal) ? stack->GetTexture(Material::eNormal)->set->set : nullptr;
-        auto roughnessSet = (m_meshData.material.textureFlags & Material::eRoughness) ? stack->GetTexture(Material::eRoughness)->set->set : nullptr;
-        auto metallicSet = (m_meshData.material.textureFlags & Material::eMetallic) ? stack->GetTexture(Material::eMetallic)->set->set : nullptr;
+        auto diffuseSet = stack->GetTexture(Material::eDiffuse)->set->set;
+        auto normalSet = stack->GetTexture(Material::eNormal)->set->set;
+        auto roughnessSet = stack->GetTexture(Material::eRoughness)->set->set;
+        auto metallicSet = stack->GetTexture(Material::eMetallic)->set->set;
         auto aoSet = stack->GetTexture(Material::eAO)->set->set;
         auto opacitySet = stack->GetTexture(Material::eOpacity)->set->set;
         commands.bindDescriptorSets(vk::PipelineBindPoint::eGraphics, pipeline->pipeline->GetLayout(), 0, { nest::CameraManager::s_cameraUniform, nest::LightManager::s_lightUniform, nest::LightManager::s_shadowMapUniform,

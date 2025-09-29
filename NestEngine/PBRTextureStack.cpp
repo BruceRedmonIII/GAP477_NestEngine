@@ -66,7 +66,7 @@ void nest::PBRTextureStack::ResolveMetallic(aiMaterial* material)
 void nest::PBRTextureStack::ResolveAO(aiMaterial* material)
 {
     aiString filePath{};
-    if (material->GetTexture(aiTextureType::aiTextureType_AMBIENT_OCCLUSION, 0, &filePath) == AI_SUCCESS)
+    if (material->GetTexture(aiTextureType::aiTextureType_LIGHTMAP, 0, &filePath) == AI_SUCCESS)
         m_ambientOcclusion = BLEACH_NEW(Texture(nest::FileManager::ResolvePath(s_kAssetKey, filePath.C_Str()), Material::eAO));
     else
         m_ambientOcclusion = BLEACH_NEW(Texture("", Material::eAO));

@@ -1,6 +1,1 @@
-*.vscode
-*.vs
-*.idea
-cmake-build-*
-build
 .cache

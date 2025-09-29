@@ -169,7 +169,11 @@ float SampleMetallic()
 }
 float SampleOpacity()
 {
-	return texture(opacityTexture, inTexcoord0).r;
+	if ((objectMaterial.textureFlags & eOpacity) != 0)
+	{
+		return texture(opacityTexture, inTexcoord0).r;
+	}
+	return 1.0;
 }
 vec4 GetSurfaceColor()
 {
@@ -204,7 +208,7 @@ vec3 GetNormal()
 
 float SampleRoughness()
 {
-	float roughness = 0.0;
+	float roughness = 0.5;
 	if ((objectMaterial.textureFlags & eRoughness) != 0)
 	{
 		roughness = texture(roughnessTexture, inTexcoord0).r;
