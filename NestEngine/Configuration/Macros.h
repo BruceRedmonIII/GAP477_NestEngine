@@ -10,7 +10,7 @@
     #define _LOGS_ENABLED 1 // set to 0 if you don't want a log file 
     #define _LOG_TO_TERMINAL 1
     #define _PRINT_NEW_TRANSFORMS 0
-    #define _PRINT_MATERIAL_PROPERTIES 1
+    #define _PRINT_MATERIAL_PROPERTIES 0
     #define _ENGINE_BASIC_LOGGING 0
 #endif
 
