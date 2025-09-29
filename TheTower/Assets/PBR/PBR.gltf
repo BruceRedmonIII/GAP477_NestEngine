@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.3.47",
+		"generator":"Khronos glTF Blender I/O v4.4.55",
 		"version":"2.0"
 	},
 	"extensionsUsed":[
@@ -37,9 +37,7 @@
 				4,
 				5,
 				6,
-				7,
-				8,
-				9
+				7
 			]
 		}
 	],
@@ -47,10 +45,16 @@
 		{
 			"mesh":0,
 			"name":"Cube",
+			"rotation":[
+				0,
+				1,
+				0,
+				0
+			],
 			"scale":[
-				45.999210357666016,
+				15.217747688293457,
 				0.24359475076198578,
-				44.01255798339844
+				14.560510635375977
 			]
 		},
 		{
@@ -70,33 +74,15 @@
 		},
 		{
 			"mesh":1,
-			"name":"Sphere",
+			"name":"Sphere.002",
 			"translation":[
-				1.724708080291748,
+				2.068204879760742,
 				2.3514914512634277,
-				7.721519470214844
+				1.558828353881836
 			]
 		},
 		{
 			"mesh":2,
-			"name":"Sphere.001",
-			"translation":[
-				8.083806991577148,
-				2.3514914512634277,
-				7.721519470214844
-			]
-		},
-		{
-			"mesh":3,
-			"name":"Sphere.002",
-			"translation":[
-				-5.009702682495117,
-				2.3514914512634277,
-				7.721519470214844
-			]
-		},
-		{
-			"mesh":4,
 			"name":"Sphere.004",
 			"translation":[
 				1.8297438621520996,
@@ -105,7 +91,7 @@
 			]
 		},
 		{
-			"mesh":5,
+			"mesh":3,
 			"name":"Sphere.005",
 			"translation":[
 				8.976985931396484,
@@ -114,10 +100,10 @@
 			]
 		},
 		{
-			"mesh":6,
+			"mesh":4,
 			"name":"Sphere.006",
 			"translation":[
-				12.463186264038086,
+				-4.419424057006836,
 				2.3514914512634277,
 				0.37069082260131836
 			]
@@ -142,7 +128,7 @@
 			]
 		},
 		{
-			"mesh":7,
+			"mesh":5,
 			"name":"Sphere.003",
 			"translation":[
 				-4.813278675079346,
@@ -167,20 +153,6 @@
 		{
 			"doubleSided":true,
 			"name":"PlaneMaterial",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.07513001561164856,
-					0.07513001561164856,
-					0.07513001561164856,
-					1
-				],
-				"metallicFactor":0.5,
-				"roughnessFactor":0.5
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"Stucco",
 			"normalTexture":{
 				"index":0
 			},
@@ -195,7 +167,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Wood",
+			"name":"Rocks",
 			"normalTexture":{
 				"index":3
 			},
@@ -210,7 +182,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Rocks",
+			"name":"Hex",
 			"normalTexture":{
 				"index":6
 			},
@@ -218,7 +190,6 @@
 				"baseColorTexture":{
 					"index":7
 				},
-				"metallicFactor":0,
 				"metallicRoughnessTexture":{
 					"index":8
 				}
@@ -226,7 +197,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Hex",
+			"name":"titanium",
 			"normalTexture":{
 				"index":9
 			},
@@ -241,7 +212,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"titanium",
+			"name":"MetalCubes",
 			"normalTexture":{
 				"index":12
 			},
@@ -256,7 +227,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"MetalCubes",
+			"name":"Material",
 			"normalTexture":{
 				"index":15
 			},
@@ -266,22 +237,6 @@
 				},
 				"metallicRoughnessTexture":{
 					"index":17
-				}
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"Material",
-			"normalTexture":{
-				"index":18
-			},
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":19
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":20
 				}
 			}
 		}
@@ -302,7 +257,7 @@
 			]
 		},
 		{
-			"name":"Sphere",
+			"name":"Sphere.002",
 			"primitives":[
 				{
 					"attributes":{
@@ -316,7 +271,7 @@
 			]
 		},
 		{
-			"name":"Sphere.001",
+			"name":"Sphere.004",
 			"primitives":[
 				{
 					"attributes":{
@@ -330,7 +285,7 @@
 			]
 		},
 		{
-			"name":"Sphere.002",
+			"name":"Sphere.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -344,7 +299,7 @@
 			]
 		},
 		{
-			"name":"Sphere.004",
+			"name":"Sphere.006",
 			"primitives":[
 				{
 					"attributes":{
@@ -358,7 +313,7 @@
 			]
 		},
 		{
-			"name":"Sphere.005",
+			"name":"Sphere.007",
 			"primitives":[
 				{
 					"attributes":{
@@ -368,34 +323,6 @@
 					},
 					"indices":7,
 					"material":5
-				}
-			]
-		},
-		{
-			"name":"Sphere.006",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":20,
-						"NORMAL":21,
-						"TEXCOORD_0":22
-					},
-					"indices":7,
-					"material":6
-				}
-			]
-		},
-		{
-			"name":"Sphere.007",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":23,
-						"NORMAL":24,
-						"TEXCOORD_0":25
-					},
-					"indices":7,
-					"material":7
 				}
 			]
 		}
@@ -472,65 +399,38 @@
 		{
 			"sampler":0,
 			"source":17
-		},
-		{
-			"sampler":0,
-			"source":18
-		},
-		{
-			"sampler":0,
-			"source":19
-		},
-		{
-			"sampler":0,
-			"source":20
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"grainy_stucco_Normal-ogl.png",
-			"uri":"stucco/grainy_stucco_Normal-ogl.png"
+			"name":"gray-granite-flecks-Normal-ogl.png.001",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-Normal-ogl.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"grainy_stucco_albedo.png",
-			"uri":"stucco/grainy_stucco_albedo.png"
+			"name":"gray-granite-flecks-albedo.png.001",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"grainy_stucco_Roughness.png",
-			"uri":"stucco/grainy_stucco_Roughness.png"
+			"name":"gray-granite-flecks-Roughness.png.001",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-Roughness.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"woodframe1-normal2.png",
-			"uri":"woodframe/woodframe1-normal2.png"
+			"name":"gray-granite-flecks-Normal-ogl.png",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-Normal-ogl.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"woodframe1b-albedo.png",
-			"uri":"woodframe/woodframe1b-albedo.png"
+			"name":"gray-granite-flecks-albedo.png",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-albedo.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"woodframe1-rough.png",
-			"uri":"woodframe/woodframe1-rough.png"
-		},
-		{
-			"mimeType":"image/jpeg",
-			"name":"Tiles108_2K-JPG_NormalGL.jpg",
-			"uri":"Tiles108_2K-JPG/Tiles108_2K-JPG_NormalGL.jpg"
-		},
-		{
-			"mimeType":"image/jpeg",
-			"name":"Tiles108_2K-JPG_Color.jpg",
-			"uri":"Tiles108_2K-JPG/Tiles108_2K-JPG_Color.jpg"
-		},
-		{
-			"mimeType":"image/jpeg",
-			"name":"Tiles108_2K-JPG_Roughness.jpg",
-			"uri":"Tiles108_2K-JPG/Tiles108_2K-JPG_Roughness.jpg"
+			"name":"gray-granite-flecks-Roughness.png",
+			"uri":"gray-granite-flecks-bl/gray-granite-flecks-Roughness.png"
 		},
 		{
 			"mimeType":"image/jpeg",
@@ -578,19 +478,19 @@
 			"uri":"Metal049A_2K-JPG/Metal049A_2K-JPG_Roughness.jpg"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"RoofingTiles013D_2K-JPG_NormalGL.jpg.003",
-			"uri":"RoofingTiles013D_2K-JPG/RoofingTiles013D_2K-JPG_NormalGL.jpg"
+			"mimeType":"image/png",
+			"name":"copper-rock1-normal.png",
+			"uri":"copper-rock1-bl/copper-rock1-bl/copper-rock1-normal.png"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"RoofingTiles013D_2K-JPG_Albedo.jpg.001",
-			"uri":"RoofingTiles013D_2K-JPG/RoofingTiles013D_2K-JPG_Albedo.jpg"
+			"mimeType":"image/png",
+			"name":"copper-rock1-albedo.png",
+			"uri":"copper-rock1-bl/copper-rock1-bl/copper-rock1-albedo.png"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"RoofingTiles013D_2K-JPG_Roughness.jpg.003",
-			"uri":"RoofingTiles013D_2K-JPG/RoofingTiles013D_2K-JPG_Roughness.jpg"
+			"mimeType":"image/png",
+			"name":"copper-rock1-rough.png",
+			"uri":"copper-rock1-bl/copper-rock1-bl/copper-rock1-rough.png"
 		}
 	],
 	"accessors":[
@@ -773,62 +673,6 @@
 			"componentType":5126,
 			"count":559,
 			"type":"VEC2"
-		},
-		{
-			"bufferView":20,
-			"componentType":5126,
-			"count":559,
-			"max":[
-				0.9999997019767761,
-				1,
-				0.9999993443489075
-			],
-			"min":[
-				-0.9999990463256836,
-				-1,
-				-1
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":21,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":22,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":23,
-			"componentType":5126,
-			"count":559,
-			"max":[
-				0.9999997019767761,
-				1,
-				0.9999993443489075
-			],
-			"min":[
-				-0.9999990463256836,
-				-1,
-				-1
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":24,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":25,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC2"
 		}
 	],
 	"bufferViews":[
@@ -951,42 +795,6 @@
 			"byteLength":4472,
 			"byteOffset":91248,
 			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":95720,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":102428,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":4472,
-			"byteOffset":109136,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":113608,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":120316,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":4472,
-			"byteOffset":127024,
-			"target":34962
 		}
 	],
 	"samplers":[
@@ -997,7 +805,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":131496,
+			"byteLength":95720,
 			"uri":"PBR.bin"
 		}
 	]

@@ -33,6 +33,8 @@ struct Light
 {
    	uint type;
 	vec3 diffuse;
+	vec3 specular;
+	vec3 ambient;
 	vec3 position;
 	vec3 attenuation;
 	vec3 direction;
@@ -249,11 +251,11 @@ vec3 PBRLightCalculation(Light light, vec3 albedo, float metallic, float roughne
     float denominator = 4.0 * max(dot(normal, V), 0.0) * max(dot(normal, L), 0.0) + 0.0001; // + 0.0001 to prevent divide by zero
     vec3 specular = numerator / denominator;
     // kS is equal to Fresnel
-    vec3 kS = F;
+    vec3 kS = F; // KS is for reflection/specular
     // for energy conservation, the diffuse and specular light can't
     // be above 1.0 (unless the surface emits light); to preserve this
     // relationship the diffuse component (kD) should equal 1.0 - kS.
-    vec3 kD = vec3(1.0) - kS;
+    vec3 kD = vec3(1.0) - kS; // KD is for refraction/diffuse
     // multiply kD by the inverse metalness such that only non-metals 
     // have diffuse lighting, or a linear blend if partly metal (pure metals
     // have no diffuse light).
@@ -327,5 +329,5 @@ void main()
 	vec4 colorResult = vec4(0.0);
     if ((objectMaterial.options & eMaterialLit) != 0)
         colorResult = CalculateLighting();
-    outColor = colorResult;
+    outColor = vec4(colorResult.rgb * shadow, colorResult.a);
 }

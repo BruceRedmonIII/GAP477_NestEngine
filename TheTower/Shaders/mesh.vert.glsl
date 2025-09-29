@@ -22,6 +22,8 @@ struct Light
 {
    	uint type;
 	vec3 diffuse;
+	vec3 specular;
+	vec3 ambient;
 	vec3 position;
 	vec3 attenuation;
 	vec3 direction;
