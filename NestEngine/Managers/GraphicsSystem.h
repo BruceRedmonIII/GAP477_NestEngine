@@ -1,5 +1,6 @@
 #pragma once
 #include "Manager.h"
+#include "../GlobalConstants/constants.h"
 #include <unordered_map>
 #include <vector>
 namespace nest
@@ -18,9 +19,9 @@ namespace nest
 		float depthBiasConstant = 1.25f;
 		float depthBiasSlope = 1.75f;
 		float lightFOV = 90.0f;
-		float lightNear = 1.0f;
+		float lightNear = .1f;
 		float lightFar = 100.f;
-		float lightAspect = 1.0f;
+		float lightAspect = s_kWindowParams.z / s_kWindowParams.w;
 	};
 	class GraphicsSystem
 	{

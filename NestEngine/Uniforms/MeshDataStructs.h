@@ -45,7 +45,7 @@ namespace nest
 		int textureId = -1;
 		int textureRepeatCount = 1;
 #if _RENDER_SHADOWS == 1
-		uint32_t options = eLit | eCastShadows | eCatchShadows;
+		uint32_t options = eLit | eCastShadows;
 #else
 		uint32_t options = eLit;
 #endif
@@ -71,6 +71,8 @@ namespace nest
 		};
 		uint32_t type = ePoint;
 		alignas(16) Vec3 diffuse{};
+		alignas(16) Vec3 specular{};
+		alignas(16) Vec3 ambient {};
 		alignas(16) Vec3 position{};
 		alignas(16) Vec3 attenuation{};
 		alignas(16) Vec3 direction{};

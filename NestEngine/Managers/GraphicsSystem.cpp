@@ -226,16 +226,11 @@ void nest::GraphicsSystem::RenderShadows(vk::CommandBuffer& commands)
 			// Move eyePos slightly away from center to avoid NaNs
 			eyePos = { 0.0f, 0.0f, 1.0f };
 		}
-		if (uniform.light0.type == Light::ePoint)
-		{
-			center = { 0.0f, 0.0f, 0.0f };
-		}
 		Mat4 lightViewMatrix = glm::lookAt(eyePos, center, up);
 		Mat4 lightProjMatrix{};
 		if (uniform.light0.type == Light::eSpot)
 		{
-			float near_plane = 1.0f;
-			lightProjMatrix = glm::ortho(-uniform.light0.outerCone, uniform.light0.outerCone, -uniform.light0.outerCone, uniform.light0.outerCone, near_plane, uniform.light0.lightRange);
+			lightProjMatrix = glm::ortho(-uniform.light0.outerCone, uniform.light0.outerCone, -uniform.light0.outerCone, uniform.light0.outerCone, m_shadowSettings.lightNear, uniform.light0.lightRange);
 		}
 		else
 		{

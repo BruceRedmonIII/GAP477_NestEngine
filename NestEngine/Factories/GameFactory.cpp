@@ -161,6 +161,13 @@ void nest::GameFactory::GatherAllMaterials(const aiScene* scene)
         aiColor4D rgba{};
         Material mater{};
         aiString filePath{};
+
+        // temporary cheat
+        if (strcmp(material->GetName().C_Str(), "PlaneMaterial") == 0)
+        {
+            mater.options = Material::eLit | Material::eCatchShadows;
+        }
+
         // check to see if a texture is associated with this mesh
         if (material->GetTexture(aiTextureType::aiTextureType_DIFFUSE, 0, &filePath) == AI_SUCCESS)
         {
@@ -198,10 +205,6 @@ void nest::GameFactory::GatherAllMaterials(const aiScene* scene)
             if (aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &rgba) == AI_SUCCESS)
             {
                 mater.color = { rgba.r, rgba.g, rgba.b, rgba.a };
-                if (strcmp(material->GetName().C_Str(), "PlaneMaterial") == 0)
-                {
-                    mater.options = Material::eLit | Material::eCatchShadows;
-                }
             }
             else
             {

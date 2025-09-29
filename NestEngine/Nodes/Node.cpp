@@ -282,6 +282,8 @@ nest::LightNode::LightNode(const aiLight* aiLight, const aiNode* aiNode)
 {
     BaseNode::SetMeshData(aiNode);
     m_lightData.diffuse = Vec3{ aiLight->mColorDiffuse.r, aiLight->mColorDiffuse.g, aiLight->mColorDiffuse.b };
+    m_lightData.specular = Vec3{ aiLight->mColorSpecular.r, aiLight->mColorSpecular.g , aiLight->mColorSpecular.b };
+    m_lightData.ambient = Vec3{ aiLight->mColorAmbient.r, aiLight->mColorAmbient.g , aiLight->mColorAmbient.b };
     m_lightData.position = m_meshData.transform[3];
     m_lightData.size = { aiLight->mSize.x, aiLight->mSize.y };
     m_lightData.up = { aiLight->mUp.x, aiLight->mUp.y, aiLight->mUp.z };

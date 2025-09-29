@@ -153,7 +153,7 @@ void nest::ImGuiManager::PreRender() const
 				ImGui::InputFloat("LightRange", &lightData.lightRange, 1.0, 5.0);
 				ImGui::InputFloat("InnerCone", &lightData.innerCone, 1.0, 5.0);
 				ImGui::InputFloat("OuterCone", &lightData.outerCone, 1.0, 5.0);
-				ImGui::ColorPicker3("diffuse", glm::value_ptr(lightData.diffuse));
+				ImGui::InputFloat3("diffuse", glm::value_ptr(lightData.diffuse));
 				const char* types[] = { "Point", "Sun", "Spot", "Area" }; // These types must match the order of the enum
 				int typeIndex = static_cast<int>(lightData.type);
 				if (ImGui::ListBox("Type", &typeIndex, types, IM_ARRAYSIZE(types), 4))
